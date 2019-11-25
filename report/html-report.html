@@ -72,20 +72,34 @@
 
     <section id="architecture">
         <h1> 2. Project architecture </h1>
-        <p> *** Few words how we modeled our software in a C4 diagram *** </p>
+        <p> Our main focus is on a single system divided in an MVC style. C4 was appropriate for designing such plan. The following will cover the essentials one by one. </p>
         <ul>
-            <li><b>Context</b> *** Relations between systems - main software system and the APIs used *** </li>
-            <li><b>Container </b> *** How the main software encloses the server - client interaction *** </li>
-            <li><b>Component </b> *** The division of the container in multiple features *** </li>
-            <li><b>Code</b> *** Won't be available yet as a diagram *** </li>
+            <li><b>Context</b> The ECAW software system is making use of a multitude of APIs which provide visual and audio content. 
+                The reason is clear while the application is meant to provide as many ways to import content as possible. 
+                The scheme shows for now only the essential content APIs. Atlas will ultimatelly be used for storing our non-relational database in cloud. </li>
+            <li><b>Container </b> There are several containers ECAW makes use of. Clearly there is a client side massive code-base which
+                will be enclosed in the one-page application container, delivered directly to the user. Here will rely most of our
+                bussiness logic. The Web Server will serve only as a gateway to the server side logic. It will support the client HTTP request and
+                afterwards, content related queries which will be passed to the Data handling API. This will be the main controller over the backing data.
+                Outside it will prove as a facade for the rest of the containers, while inside, this will respond to the queries/updates. 
+                Finnaly, the Database is backed by the MongoDB engine, as it fits the NodeJS ecosystem used. </li>
+            <li><b>Component </b> The only component which will figure here will be the client-side container's components. While the server side
+                should deal only with API calls and database basic operations, the client in responsible with managing the user interaction, which
+                in this case, is considerable. It splits the code-base in 4 components: 3 of them are drawing related and 1 is administrative. The
+                Canvas is the crucial component while this handles the positional and displaying features. The Tools Component is evidently mandatory,
+                and is responsible with adding content to the canvas. More exactly, it will call the server for getting the source of one primitive, or
+                it will respond with a default value. The last drawing component is the Customization one. This will let the user change the 
+                proprieties of one widget/shape inside the canvas. Ultimatelly, the collage manipulator is a basic API exploiting component which will
+                deliver the API functionalieties directly to the user.</li>
+            <li><b>Code</b> No code scheme is yet figured. As a regular application, this is not appropriate for a summary of the architecture.</li>
         </ul>
         <h3 id="arhitecture_1"> 2.1 C4 Model Diagrams </h3>
         <h3 id="arhitecture_1_1"> Context </h3>
-        <img src="***context.jpg" alt="Context diagram">
+        <img src="./images/c1.png" alt="Context diagram">
         <h3 id="arhitecture_1_2"> Container </h3>
-        <img src="***container.jpg" alt="Container diagram">
+        <img src="./images/c2.png" alt="Container diagram">
         <h3 id="arhitecture_1_3"> Component </h3>
-        <img src="***component.jpg" alt="Component diagram">
+        <img src="./images/c3.png" alt="Component diagram">
     </section>
 
     <section id="db">
@@ -108,27 +122,73 @@
 
     <section id="functionalities">
         <h1> 6. Functionalities </h1>
-        <h3 id="func_1"> 6.1 Functionality 1</h3>
-        <p> *** For each functionality describe how it will improve our main use case: eCard web editor *** </p>
-        <h3 id="func_1"> 6.1 Functionality 1</h3>
-        <p>  </p>
-        <h3 id="func_1"> 6.1 Functionality 1</h3>
-        <p> </p>
+        <h3 id="func_1"> 6.1 Basic primitive drawing</h3>
+        <p> For the start, the main functionality provided is the adding of several primitives onto a canvas. The primitives right now are:
+            text, shape, image, audio, video. The position style is highly dependent on the content type (rotation, size, overlap etc.).
+            The content adding will be done with the drag and drop events using the two components: Tools and Canvas. Due to the standard 
+            content maniputalion tools, ECAW will deliver easy to use interface tools for scaling and other geometry translations.
+        </p>
+        <h3 id="func_2"> 6.2 Customization</h3>
+        <p>  
+            The widgets/shapes inside the canvas are customizable in a way dependent of the content type. This feature is scalable, as there are
+            lots of ways in which one specific shape can be customized (colors, borders, text style, autoplay etc.). Furthermore, a powerful
+            feature as it is independent from the content source and initial contraints, thus meaning it can provide the exact settings for 
+            two images for example, for the layout sake. This also works on a hybrid combination (between a video and a text), which are meant to
+            be aligned after a user defined layout.
+        </p>
+        <h3 id="func_3"> 6.3 External source</h3>
+        <p> 
+            While the text and shape widgets are meant to be user-defined, the audio, video and image do require a source. On a low scale, the source
+            can be provided by the user by upload. However, due to the increasingly efficiency of online storing services, ECAW provides a suite of
+            providers which can be used in order to import custom data. This is evidently highly scalable, as potential new APIs will be easily
+            increase the impact of this feature.
+        </p>
+        <h3 id="func_4"> 6.4 Save and load </h3>
+        <p> 
+            As this administrative feature is mandatory for such projects, save and load will deliver an increased user experience. The saving will
+            be done under a XML format for easy storing. This is also be available for cloud storing, as one collage can be passed to another user via
+            the application (see the sharing feature). Nevertheless to say, a collage can be saved internally through user interaction (saving the collage
+            on the device) or through cookies (saving the state of one collage automatically - this should also be taken in consideration as an efficiency issue).
+        </p>
+        <h3 id="func_5"> 6.5 Sharing</h3>
+        <p> 
+            This event is delivered as a feature as long as the API behind has such interaction implemented. This means that, the administrative
+            actions are a consequence of trying to exploit the back API, which will provide the sharing ability. However, the API is scalable in terms
+            of features, thus other new events will be available depending on the powerhouse's level.
+
+            Sharing for example will be used for working on the same collage as other user. Depending on the implementation, this will support concurrency
+            or not. The initial versions will rather focus on getting the things done under a non-concurent manner, while later versions may exploit this 
+            feature.
+        </p>
     </section>
 
     <section id="api">
         <h1> 7. External APIs </h1>
-        <h3 id= "api_1"> 7.1 API 1</h3>
+        <h3 id= "api_1"> 7.1 Youtube API</h3>
         <p> 
-            *** For each API describe the motivation of using it and how it will be integrated. See Public API page; check in at least 1/2 APIs. ***
+            For sure a boost for the application, as Youtube provides a wide range of videos which can join the canvas. As a content provider, 
+            it mainly focuses on videos and it starts as the best solution of a free video API for now. The OAuth gate towards the API might make
+            the API not that easy to access, but in the end the effort will be worth. Furthermore, some of other API's require similar authentification
+            method, thus a component once done can exploit this type of APIs.
         </p>
-        <h3 id= "api_2"> 7.2 API 2 </h3>
+        <h3 id= "api_2"> 7.2 RandomCat API </h3>
         <p> 
-
+            An free and very easy to use API which can provide resonable content for a collage. This one is an image provider which can
+            contribute to the external sources feature. 
+            No need to use any special authentificating process, but rather only HTTP calls which will return JSON content. This type of API
+            provides a low effort high impact boost towards the user experience.
         </p>
-        <h3 id= "api_3"> 7.3 API 3</h3>
+        <h3 id= "api_3"> 7.3 Giphy API</h3>
         <p> 
-
+            Due to the recent trends, a gif is highly adequate for such application. Furthermore Giphy is a high appreciated gif provider,
+            thus worthy to be taken aboard. This (third) API uses an API key based authentification, thus the server will have mechanisms for all kind
+            of APIs, having a scalable implementation towards adding new APIs (with any kind of free authorization).
+        </p>
+        <h3 id= "api_4"> 7.4 SoundCloud API</h3>
+        <p> 
+            Finally, there should be an audio delivery service and SoundCloud API is fitting the profile. Therefore audio widgets can be added now
+            through the SoundCloud API. Similar to the Youtube API, it requires an OAuth method of authentificating the application. Unfortunately,
+            these APIs are not from the save provider, thus separate efforts should be done in order to authorize ECAW.
         </p>
     </section>
 
