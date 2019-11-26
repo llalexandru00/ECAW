@@ -26,7 +26,8 @@
             </li>
             <li><a href="#db">3. Database</a>
                 <ul>
-                    <li><a href="#db_1">3.1 Database Schema</a></li>
+                    <li><a href="#db_1">3.1 Database Tables</a></li>
+                    <li><a href="#db_2">3.2 Database Structure</a></li>
                 </ul>
             </li>
             <li><a href="#mvc">4. MVC Model</a>
@@ -55,8 +56,14 @@
             </li>
             <li><a href="#technologies">8. Technologies</a>
                 <ul>
-                    <li><a href="#tech_1">8.1 Technology 1 </a></li>
-                    <li><a href="#tech_2">8.2 Technology 2 </a></li>
+                    <li><a href="#tech_1">8.1 Front End - HTML</a></li>
+                    <li><a href="#tech_2">8.2 Front End - CSS</a></li>
+                    <li><a href="#tech_3">8.3 Front End - Javascript</a></li>
+                    <li><a href="#tech_4">8.4 Backend</a></li>
+                    <li><a href="#tech_5">8.5 Database</a></li>
+                    <li><a href="#tech_6">8.6 Version Control</a></li>
+                    <li><a href="#tech_7">8.7 Server and OS</a></li>
+                    <li><a href="#tech_8">8.8 Deployment</a></li>
                 </ul>
             </li>
             <li><a href="#bibliography">9. Bibliography & Sources</a>
@@ -65,8 +72,14 @@
 
     <section id="introduction">
         <h1> 1. Introduction </h1>
-        <img src="***logo.png">
-        <p> *** Project desciption in highlights: utility, technology summary and user interaction ***</p>
+        <img src="images/logo.png" style = "width:20%">
+        <p> 
+            ECAW is an extensible web application for digitaly creation of collages and sharing them among other.
+            The application will provide a virtual canvas where the users will contribute with diverse types of
+            content: text, images, video, audio and geometric shapes etc. Users can upload custom content or make
+            use of the external public APIs. For editting, operations like redo, drag&drop etc. will be implemented, 
+            including hot keys support. The virtual collage can be sharen among several social networks or email.
+        </p>
     </section>
 
     <section id="architecture">
@@ -103,20 +116,27 @@
 
     <section id="db">
         <h1> 3. Database </h1>
-        <p> *** Present a summary of the database components: tables and relations ***</p>
-        <h3 id="db_1"> 3.1 Database schema </h3>
-        <p> <img src="***database.jpg" alt="Database Schema"/> </p>
+        <p> The database scheme is slim as it does not really represent the main focus of the architecture. It consists of two tables: content and id.
+            The enclosing data are basic, thus reflecting only the required information in order to make the model appropriate for the application.
+        </p>
+        <h3 id="db_1"> 3.1 Database tables </h3>
+        <p> <img src="images/database_tables.png" alt="Database Tables"/> </p>
+        <h3 id="db_2"> 3.2 Database structure </h3>
+        <p> <img src="images/database_structure.png" alt="Database Structure"/> </p>
     </section>
 
     <section id="mvc">
         <h1> 4. MVC Model</h1>
-        <p> *** Very skim description of why we use MVC ***</p>
+        <p> The MVC (model - view - controller) is an architectural model used by the software engineering. The success is due to the isolation
+            of the bussiness logic from the interface, thus resulting in a application where the visual level and/or the inferior levels of the 
+            bussiness logic are easier to modify, without affecting the other levels.
+        </p>
         <h3 id="mvc_1"> 4.1 Model </h3>
-        <p> *** Very slim model as there is no focus in this area *** </p>
+        <p> This part manipulates the logic operations (send prior by the superior level) to result in a component easier to understand. </p>
         <h3 id="mvc_2"> 4.2 View </h3>
-        <p> *** Huge focus on the view, as the main application relies on this component *** </p>
+        <p> This component is responsible for the graphics, in other words, the display of the already proccessed data. Its role is to manage the data until it riches the controller. </p>
         <h3 id="mvc_3"> 4.3 Controller </h3>
-        <p> *** Start as a casual presentation of API integration. Contiune with optional server side synchronization for shared work ***</p>
+        <p> Due to this component we can control the access towards the application. They can be files, scripts or programs, in general any kind allowed by the interface. This way we can make the content more diverse in terms of dynamics, and static in the same time.</p>
     </section>
 
     <section id="functionalities">
@@ -159,6 +179,13 @@
             or not. The initial versions will rather focus on getting the things done under a non-concurent manner, while later versions may exploit this 
             feature.
         </p>
+        <h3 id="func_6"> 6.6 Login </h3>
+        <p> 
+            This will be a feature regarding the login/sign up paradigm. This is clearly what is supposed to handle, thus the focus of this topic should be 
+            rather what value will bring onto the application. Mainly a way of saving one callage in a digital form. This can be done by the cloud saving feature.
+            However the login will help one visualize its particular creation and extend the idea of one individual collage to a collection of collages. This is a
+            very scalable feature as it allows uniquely identifying creations. Basically this is a way of managing the content in a more fashionable way.
+        </p>
     </section>
 
     <section id="api">
@@ -193,39 +220,95 @@
 
     <section id="technologies">
         <h1> 8. Technologies </h1>
-        <h3 id="tech_1"> 8.1 Backend</h3>
+        <h3 id="tech_1"> 8.1 Front end - HTML</h3>
         <p> 
-            *** Present the preference for NodeJS and how it will help the development stage ***
+            HTML is a marking language used for creating web pages which can be displayed inside a browser. HTML's role is
+            to present the information: paragraph, fonts, tables etc. rather than describing the semantics of the document.<br>
+            HTML is the abbreviation for Hyper Text Mark-up Language and is the code with resides at the base of the web pages. <br>
+            HTML pages are based on tags and have the .html or .htm extension. In their vast majority this tags come in pairs, an opening one
+            and a closing one (however there are also cases in which there are single tags). The web navigator interprets this tags displaying
+            the result on the screen. The HTML is a language which does not separate lower case from upper case. <br>
+            The main page of one domain is the index.html/index.htm file. This page is meant to be displayed automatically on a domain entrance.<br>
+            For example, by visiting www.name.com, the page www.name.com/index.html is displayed.<br>
+            Some tags allow the usage of attributes with cusom values. 
         </p>
 
-        <h3 id="tech_2"> 8.2 Database</h3>
+        <h3 id="tech_2"> 8.2 Front end - CSS</h3>
         <p> 
-            *** Make use of a free Cloud Storage. Most probably MongoDB as iot fits the ecosystem. ***    
+            CSS is a standard for element formatting inside a HTML docuemnt. Styles can be attached to the HTML elemenets by
+            importing external files or from inside the document through the style tag or the style attribute. CSS can be used
+            to format XHTML, XML and SVGL.<br>
+            CSS3 is an upgrade which brings in some new attrbiutes and helps the development of new concepts in the web design.<br>
+            Some of the most important new modules added to this standard for formatting the HTML elements bring a considerable
+            step forward in developing in terms of web design.
         </p>
 
-        <h3 id="tech_3"> 8.3 Front-end</h3>
+        <h3 id="tech_3"> 8.3 Front end - Javscript</h3>
         <p> 
-            *** Massive motivation behind plain Javascript and what part it will play in our application ***
+            JavaScript is an OOP language based on protoype concept. It is used especially for introducing new functionalities in web
+            pages; the JavaScript code being executed by the browser. The language is well known for its usage inside web site building,
+            but it is used for embedded objects access in other applications. It was initially developed by Brendan Eich from Netscape 
+            Communication Corporation under the name of Mocha, then LiveScript and finally as JavaScript.<br>
+            Beside its name and some syntax similarities, between JavaScript and the Java language there is no link. Like in Java, JavaScript
+            has a syntax close to C's one, but it has way more in common with Self language rather than Java.<br>
+            Until the beginning of 2005, the last existing version was JavaScript 1.5, which corresponds to the third edition of ECMA-262,
+            ECMAScript, in other words, a standard edition of JavaScript. The versions of Mozilla starting from 1.8 Beta 1 have a support 
+            for E4X, which is an extension of the language which has to deal with XML, defined in the ECMA-357 standard. The current version
+            of Mozilla, 1.8.1 (over which Firefox and Thunderbird 2.0 are built) supports JavaScript 1.7.<br>
+            The newest usage of Javascript is related to the scripting of web pages. The web developers can encapsulate in HTML pages
+            scripts for diverse activities like data validation or menu creation and other animated effects.<br>
+            The browsers store the representation of one web page under a tree object and provide this to the JavaScript, which can start
+            manipulate them. The object tree is named Document Object Model (DOM). There is W3C standard for the DOM which should be delivered
+            by the browser, which start the idea of writing portable scripts, which should work the same on all browsers. In reality, the W3C
+            standard for the DOM is not completely implemented. However the tendency of the browsers is to align the W3C standard, some of them
+            still have incompatibility issues (Internet Explorer).<br>
+            A more popular technique of building the web pages in the recent times is AJAX (Asynchronous JavaScript and XML). This technique 
+            presumes exeuting HTTP calls in the background without reloading the page, thus updating only parts of the DOM. AJAX permits the building
+            of web interfaces with small response time, because the expensive operation of reloading the HTML complete can be removed.
         </p>
 
-        <h3 id="tech_4"> 8.4 Version control</h3>
+        <h3 id="tech_4"> 8.4 Back End</h3>
         <p> 
-            *** GitHub is already mandatory ***
+            Node.js is an environment for running Javascript, open-platform, multi-platform, which executes JavaScript code outside the browser. NodeJS
+            allows the developers to use JavaScript for command line commands development and for server-side scripts - running this way, dynamic content
+            can be created to be efficiently send to the client. Thus Node.js represents a "JavaScript everywhere" paradigm, unifying the development of
+            web applications around a single programming langauge, way above the different languages for scripts from the server side and client side. <br>
+            However js is the standard file extension for JavaScript code, the "Node.js" name does not describe a different type of file in this context but
+            is just the name of the product. Node.js has an architecture based on events capable of asynchronous I/O. This development tools pursue optimizing
+            the workrate and the scalability inside web applications with lots of I/O operations, togheter with real time web applications (for example:
+            programs of communicating in real time ori browser games.)<br>
+            The development project shared by Node.js, under the rights of Node.js foundation, is boosted by the collaboration programme of Linux Foundation.
         </p>
 
-        <h3 id="tech_5"> 8.5 Server and OS ?</h3>
+        <h3 id="tech_5"> 8.5 Database</h3>
         <p> 
-            *** For sure make use of the NodeJS mechanism to deploy a server. Maybe introduce the possibility of using Express? ***
+            For the database choice, we are pursuing a full JavaScript ecosystem by picking a non-relational database, more specifically MongoDB. It delivers
+            fast and reliable queries which fit onto the main purpose of the application. The documents there will store information about the users and
+            theit content, thus: on a way slim data with multiple entries (for users) and bulk data with a lot of entried (for content). A database like
+            Mongo will make use of its horizontally scalability in order to store such data. Finally, a cloud based platform like Atlas will help storing
+            the data. This will for sure help the deployment and boost the storing component under security and efficiency paradigms of cloud computing.
         </p>
 
-        <h3 id="tech_6"> 8.4 Deployment?</h3>
+        <h3 id="tech_6"> 8.6 Version control</h3>
         <p> 
-            *** Present the possibility of deploying using Heroku. ***    
+            As already mandatory, the version control used for this application will be git, being hosted finally by GitHub. This is a normal choice after all
+            as both developers do have exeperience in working in such environment. Speaking of its usability, git will allow concurent development without
+            being an overhead.
         </p>
 
-        <h3 id="tech_7"> 8.6 Microservices?</h3>
+        <h3 id="tech_7"> 8.7 Server and OS </h3>
         <p> 
-            *** Not necessary at this stage. ***
+            The server used will be provided by NodeJS, due to its powerful means of delivering server work. Express will be considered as an framework in order to
+            simplify the server side work. The Web server may not have such workload in order to request powerful tools. The API however will need to 
+            have a strong impementation in orde to fullfil the multiple tasks it has. The OS used is not yet relevant, as the deployment will be done over
+            multiple OSs (mainly Windows and Linux). The server should be built in a non dependent fashion.
+        </p>
+
+        <h3 id="tech_8"> 8.8 Deployment</h3>
+        <p> 
+            Heroku is taken in consideration for deployment as it is a reliable and secure way of sharing the final product. This is however to early to decide, and
+            for sure not mandatory at this stage as it should not depend on the development stage. 
+              
         </p>
     </section>
     
@@ -240,9 +323,6 @@
         <p><a href="https://developers.giphy.com/docs/sdk">Giphy API</a></p>
         <p><a href="https://developers.soundcloud.com/">SoundCloud API</a></p>
         <p><a href="https://www.draw.io/">DrawIO - used for generating the C4 diagrams</a></p>
-
-        <h3 id="images"> Image sources </h3>
-        <p> <a href="***image.jpg" target="_blank" > *** Name of the image *** </a> </p>
     </section>
     
     <footer>
