@@ -1,0 +1,28 @@
+button {
+    background-color: #1F2833; /* Green */
+    border: 1px solid #45A29E;
+    color: white;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    padding-left: 0.5em;
+    padding-right: 0.5em;
+    height: 2em;
+    font-size: 1em;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #45A29E;
+}
+
+button:focus { 
+    outline: none; 
+}
+
+
+button::-moz-focus-inner {
+    border: 0;
+}
+  
+  
