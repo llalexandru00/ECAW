@@ -1,5 +1,6 @@
 @import "header.css";
 @import "toolbox.css";
+@import "canvas.css";
 
 html {
     height:100%;

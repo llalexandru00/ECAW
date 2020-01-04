@@ -2,7 +2,7 @@
 <html>
     <head>
         <script src = "https://cdnjs.cloudflare.com/ajax/libs/fabric.js/3.5.0/fabric.min.js"></script>
-        <script src = "../js/index.js"></script>
+
         <meta charset = "UTF-8">
 
         <link href="https://fonts.googleapis.com/css?family=Muli:300&display=swap" rel="stylesheet"> 
@@ -46,8 +46,13 @@
             </section>
 
             <!-- The canvas itself -->
-            <section>
+            <section id = "drawing_area">
                 <h5>Canvas</h5>
+                <div id="canvas_container">
+                    <canvas id="myCanvas">
+    
+                    </canvas>
+                </div>
                 <!-- This should be handled by fabricJS -->
             </section>
 
@@ -61,5 +66,7 @@
         <footer>
             <h6>ECAW Project | Alexandru Lungu, Marius Tataru</h6>
         </footer>
+
+        <script src="../src/main.js"></script>
     </body>
 </html>

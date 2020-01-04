@@ -1,4 +1,5 @@
 .toolbox {
-    grid-column-start: 1;
-    grid-column-end: 3;
-  }
+  padding: 1em;
+  grid-column-start: 1;
+  grid-column-end: 3;
+}
