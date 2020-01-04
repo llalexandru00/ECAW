@@ -1,33 +1,10 @@
-function run() {
-    
-  window.onresize = function(){ location.reload(); }
+import CanvasController from "./controllers/CanvasController.js"
 
-  let canvas = new fabric.Canvas('myCanvas');
+window.onresize = function(){ location.reload(); }
 
-  let rect = new fabric.Rect({
-    left: 10,
-    top: 10,
-    fill: 'red',
-    width: 20,
-    height: 20
-  });
+let cc = new CanvasController();
 
-  window.addEventListener('resize', resizeCanvas, false);
-
-  var element = document.getElementById("canvas_container");
-
-  console.log(element);
-  
-  function resizeCanvas() {
-    canvas.setHeight(element.offsetHeight);
-    canvas.setWidth(element.offsetWidth);
-    canvas.renderAll();
-  }
-
-  // resize on init
-  resizeCanvas();
-
-  canvas.add(rect);
-}
-
-run();
+cc.spawnText();
+cc.spawnCircle();
+cc.spawnRect();
+cc.spawnImg("https://s3-us-west-2.amazonaws.com/uw-s3-cdn/wp-content/uploads/sites/6/2017/11/04133712/waterfall.jpg");
