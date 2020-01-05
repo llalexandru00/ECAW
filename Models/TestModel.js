@@ -3,11 +3,13 @@ const mongoose = require("mongoose");
 const TestSchema = mongoose.Schema({
     title: {
         type: String,
-        required: true
+        required : true
+    },
+    age: {
+        type: Number
     },
     description: {
-        type: Number,
-        required: true
+        type: String,
     }
 });
 
