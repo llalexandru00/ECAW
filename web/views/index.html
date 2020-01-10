@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <script src = "https://cdnjs.cloudflare.com/ajax/libs/fabric.js/3.5.0/fabric.min.js"></script>
+
+        <meta charset = "UTF-8">
+
+        <link href="https://fonts.googleapis.com/css?family=Muli:300&display=swap" rel="stylesheet"> 
+        <link rel = "stylesheet" type = "text/css" href = "../style/style.css">
+
+        <title>ECAW | Main Page</title>
+    </head>
+    <body>
+
+        <!-- General features which are frame independent: logo, login, collage title, save/load-->
+        <header>
+            <img class = "logo" src = "../resources/logo.png">
+
+            <section class = "header_middle">
+                <h2>*** Collage title ***</h2>
+                
+                <section class = "header_middle_options">
+                    <button>Share</button>
+                    <button>Save</button>
+                    <button>Load</button>
+                    <button>Clear</button>
+                </section>
+            </section>
+
+            <section class = "header_right">
+                <button>Log In</button>
+                <button>Create Account</button>
+            </section>
+        </header>
+
+        <!-- Main collage editing features-->
+        <main>
+            <!-- The tool box which should deliver shapes/images/videos/text etc.-->
+            <section class = "toolbox">
+                <h5>Toolbox</h5>
+                <button id = "text_btn">Text</button>
+                <button>Rectangle</button>
+                <button>Circle</button>
+                <button>Image</button>
+                <button>Video</button>
+                <button>Audio</button>
+            </section>
+
+            <!-- The canvas itself -->
+            <section id = "drawing_area">
+                <h5>Canvas</h5>
+                <div id="canvas_container">
+                    <canvas id="fabric_canvas">
+    
+                    </canvas>
+                </div>
+                <!-- This should be handled by fabricJS -->
+            </section>
+
+            <!-- The customizing panel-->
+            <section>
+                <h5>Customize Panel</h5>
+                <!-- This should be dynamically generated based on the object selected -->
+            </section>
+        </main>
+
+        <footer>
+            <h6>ECAW Project | Alexandru Lungu, Marius Tataru</h6>
+        </footer>
+
+        <script src="../src/main.js" type="module"></script>
+    </body>
+</html>
