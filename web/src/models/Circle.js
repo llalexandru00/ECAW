@@ -2,14 +2,9 @@ import Shape from "../models/Shape.js"
 
 export default class Circle extends Shape {
 
-    constructor ()
+    constructor (metadata)
     {
-        super(new fabric.Circle({ 
-            radius: 30, 
-            fill: '#f55',
-            top: 100, 
-            left: 100 
-        }));
+        super(new fabric.Circle(metadata));
     }
 
 }

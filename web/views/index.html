@@ -2,6 +2,7 @@
 <html>
     <head>
         <script src = "https://cdnjs.cloudflare.com/ajax/libs/fabric.js/3.5.0/fabric.min.js"></script>
+        <script src = "https://s3-us-west-2.amazonaws.com/s.cdpn.io/14082/FileSaver.js"></script>
 
         <meta charset = "UTF-8">
 
@@ -17,20 +18,22 @@
             <img class = "logo" src = "../resources/logo.png">
 
             <section class = "header_middle">
-                <h2>*** Collage title ***</h2>
+                <!--<h2>Untitled Project</h2>-->
+                <h2>E-Card Web Editor</h2>
                 
                 <section class = "header_middle_options">
-                    <button>Share</button>
-                    <button>Save</button>
-                    <button>Load</button>
-                    <button>Clear</button>
+                    <button id = "save_btn">Save</button>
+                    <button id = "load_btn">Load</button>
+                    <button id = "export_btn">Export</button>
+                    <button id = "clear_btn">Clear</button>
+                    <!--<button>Share</button>-->
                 </section>
             </section>
 
-            <section class = "header_right">
+            <!--<section class = "header_right">
                 <button>Log In</button>
                 <button>Create Account</button>
-            </section>
+            </section>-->
         </header>
 
         <!-- Main collage editing features-->
@@ -39,11 +42,11 @@
             <section class = "toolbox">
                 <h5>Toolbox</h5>
                 <button id = "text_btn">Text</button>
-                <button>Rectangle</button>
-                <button>Circle</button>
-                <button>Image</button>
-                <button>Video</button>
-                <button>Audio</button>
+                <button id = "rect_btn">Rectangle</button>
+                <button id = "circle_btn">Circle</button>
+                <button id = "img_btn">Image</button>
+                <!--<button>Video</button>
+                <button>Audio</button>-->
             </section>
 
             <!-- The canvas itself -->
@@ -59,7 +62,10 @@
 
             <!-- The customizing panel-->
             <section>
-                <h5>Customize Panel</h5>
+                <h5>Customize Panel</h5><br>
+                <div id = "cust_wrapper">
+
+                </div>
                 <!-- This should be dynamically generated based on the object selected -->
             </section>
         </main>

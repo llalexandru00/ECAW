@@ -20,8 +20,10 @@ header {
 
 .header_middle > h2 {
     font-size: 2em;
+    text-align: center;
     line-height: normal;
     padding: 10px 0;
+    width:100%;
 }
 
 .header_middle_options {

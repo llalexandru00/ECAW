@@ -1,17 +1,17 @@
 import Modal from "./Modal.js"
 
-export default class TextModal extends Modal {
+export default class ImgModal extends Modal {
 
     constructor (onOk)
     {
         super();
         this.onOk = onOk;
         
-        if (TextModal.html == undefined)
+        if (ImgModal.html == undefined)
         {
-            let path = "./parts/text_modal.html";
+            let path = "./parts/img_modal.html";
             super.fetchHTML(path, (html) => {
-                TextModal.html = html;
+                ImgModal.html = html;
                 this.show();
             });
         }
@@ -20,12 +20,12 @@ export default class TextModal extends Modal {
             this.show();
         }
     }
-
+    
     show()
     { 
         let body = document.getElementsByTagName("body")[0];
         let dismissFunction = this.dismiss;
-        body.insertAdjacentHTML("beforeend", TextModal.html);
+        body.insertAdjacentHTML("beforeend", ImgModal.html);
 
         let closeBtn = document.getElementById("closeBtn");
         closeBtn.onclick = dismissFunction;
@@ -41,16 +41,24 @@ export default class TextModal extends Modal {
 
         form.addEventListener("submit", (e) => {
             e.preventDefault();
-            let content = e.srcElement;
-            onOk({
-                "text" : content.text.value,
-                "fontFamily": content.font_family.value,
-                "fontSize": content.font_size.value,
-                "fontStyle": content.font_style.value,
-                "fill": content.fill.value,
-                "underline": content.underline.checked
-            });
-            dismissFunction();
+
+
+            var reader = new FileReader();
+            reader.onload = function (event) { 
+                var imgObj = new Image();
+                imgObj.src = event.target.result;
+                imgObj.onload = function () {
+                    onOk({
+                        "source": imgObj,
+                    });
+                    dismissFunction();
+                }
+            }
+
+            if (e.target[0].files.length > 0)
+                reader.readAsDataURL(e.target[0].files[0]);
+            else
+                dismissFunction();
         });
     }
 
