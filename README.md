@@ -10,3 +10,5 @@ including hot keys support. The virtual collage can be sharen among several soci
 https://trello.com/b/wwavSOXQ/ecaw
 
 http://fabricjs.com/
+
+https://vimeo.com/user108509023/review/390683868/5063f4e99a
