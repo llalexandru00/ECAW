@@ -24,49 +24,41 @@
                     </ul>
                 </ul>
             </li>
-            <li><a href="#db">3. Database</a>
+            <li><a href="#mvc">3. MVC Model</a>
                 <ul>
-                    <li><a href="#db_1">3.1 Database Tables</a></li>
-                    <li><a href="#db_2">3.2 Database Structure</a></li>
+                    <li><a href="#mvc_1">3.1 Model </a></li>
+                    <li><a href="#mvc_2">3.2 View </a></li>
+                    <li><a href="#mvc_3">3.3 Controller </a></li>
                 </ul>
             </li>
-            <li><a href="#mvc">4. MVC Model</a>
+            <li><a href="#functionalities">4. Functionalities</a>
                 <ul>
-                    <li><a href="#mvc_1">4.1 Model </a></li>
-                    <li><a href="#mvc_2">4.2 View </a></li>
-                    <li><a href="#mvc_3">4.3 Controller </a></li>
+                    <li><a href="#func_1">4.1 Basic primitive drawing </a></li>
+                    <li><a href="#func_2">4.2 Customization </a></li>
+                    <li><a href="#func_3">4.3 External source</a></li>
+                    <li><a href="#func_4">4.4 Save and load </a></li>
                 </ul>
             </li>
-            <li><a href="#functionalities">6. Functionalities</a>
+            <li><a href="#technologies">5. Technologies</a>
                 <ul>
-                    <li><a href="#func_1">6.1 Basic primitive drawing </a></li>
-                    <li><a href="#func_2">6.2 Customization </a></li>
-                    <li><a href="#func_3">6.3 External source</a></li>
-                    <li><a href="#func_4">6.4 Save and load </a></li>
-                    <li><a href="#func_5">6.5 Sharing</a></li>
+                    <li><a href="#tech_1">5.1 Front End - HTML</a></li>
+                    <li><a href="#tech_2">5.2 Front End - CSS</a></li>
+                    <li><a href="#tech_3">5.3 Front End - Javascript</a></li>
+                    <li><a href="#tech_4">5.4 Backend</a></li>
+                    <li><a href="#tech_6">5.5 Version Control</a></li>
+                    <li><a href="#tech_7">5.6 Server and OS</a></li>
                 </ul>
             </li>
-            <li><a href="#api">7. External APIs</a>
+            <li><a href="#usage">6. Usage</a>
                 <ul>
-                    <li><a href="#api_1">7.1 Youtube API </a></li>
-                    <li><a href="#api_2">7.2 RandomCat API </a></li>
-                    <li><a href="#api_3">7.2 Giphy API </a></li>
-                    <li><a href="#api_4">7.2 SoundCloud API </a></li>
+                    <li><a href="#usage_1">6.1 Drawing</a></li>
+                    <li><a href="#usage_2">6.2 Toolbar</a></li>
+                    <li><a href="#usage_3">6.3 Customization</a></li>
+                    <li><a href="#usage_4">6.4 Handling</a></li>
+                    <li><a href="#usage_5">6.5 Hotkeys</a></li>
                 </ul>
             </li>
-            <li><a href="#technologies">8. Technologies</a>
-                <ul>
-                    <li><a href="#tech_1">8.1 Front End - HTML</a></li>
-                    <li><a href="#tech_2">8.2 Front End - CSS</a></li>
-                    <li><a href="#tech_3">8.3 Front End - Javascript</a></li>
-                    <li><a href="#tech_4">8.4 Backend</a></li>
-                    <li><a href="#tech_5">8.5 Database</a></li>
-                    <li><a href="#tech_6">8.6 Version Control</a></li>
-                    <li><a href="#tech_7">8.7 Server and OS</a></li>
-                    <li><a href="#tech_8">8.8 Deployment</a></li>
-                </ul>
-            </li>
-            <li><a href="#bibliography">9. Bibliography & Sources</a>
+            <li><a href="#bibliography">7. Bibliography & Sources</a>
         </ul>
     </div>
 
@@ -86,17 +78,12 @@
         <h1> 2. Project architecture </h1>
         <p> Our main focus is on a single system divided in an MVC style. C4 was appropriate for designing such plan. The following will cover the essentials one by one. </p>
         <ul>
-            <li><b>Context</b> The ECAW software system is making use of a multitude of APIs which provide visual and audio content. 
-                The reason is clear while the application is meant to provide as many ways to import content as possible. 
-                The scheme shows for now only the essential content APIs. Atlas will ultimatelly be used for storing our non-relational database in cloud. </li>
+            <li><b>Context</b> The ECAW software system is no longer using exernal APIs, due to e reinventing of the application. </li>
             <li><b>Container </b> There are several containers ECAW makes use of. Clearly there is a client side massive code-base which
-                will be enclosed in the one-page application container, delivered directly to the user. Here will rely most of our
-                bussiness logic. The Web Server will serve only as a gateway to the server side logic. It will support the client HTTP request and
-                afterwards, content related queries which will be passed to the Data handling API. This will be the main controller over the backing data.
-                Outside it will prove as a facade for the rest of the containers, while inside, this will respond to the queries/updates. 
-                Finnaly, the Database is backed by the MongoDB engine, as it fits the NodeJS ecosystem used. </li>
-            <li><b>Component </b> The only component which will figure here will be the client-side container's components. While the server side
-                should deal only with API calls and database basic operations, the client in responsible with managing the user interaction, which
+                will be enclosed in the one-page application container, delivered directly to the user. The client-side is the only
+                one finally implemented due to the heacy work that relied on this. This means this does not rely on a server-side;
+                any functionality is directly implemented in plain JS, thus in the front-end. Fabirc and File-Saver are the only API used here </li>
+            <li><b>Component </b> The only component which will figure here will be the client-side container's components. The client in responsible with managing the user interaction, which
                 in this case, is considerable. It splits the code-base in 4 components: 3 of them are drawing related and 1 is administrative. The
                 Canvas is the crucial component while this handles the positional and displaying features. The Tools Component is evidently mandatory,
                 and is responsible with adding content to the canvas. More exactly, it will call the server for getting the source of one primitive, or
@@ -114,40 +101,28 @@
         <img src="./images/c3.png" alt="Component diagram">
     </section>
 
-    <section id="db">
-        <h1> 3. Database </h1>
-        <p> The database scheme is slim as it does not really represent the main focus of the architecture. It consists of two tables: content and id.
-            The enclosing data are basic, thus reflecting only the required information in order to make the model appropriate for the application.
-        </p>
-        <h3 id="db_1"> 3.1 Database tables </h3>
-        <p> <img src="images/database_tables.png" alt="Database Tables"/> </p>
-        <h3 id="db_2"> 3.2 Database structure </h3>
-        <p> <img src="images/database_structure.png" alt="Database Structure"/> </p>
-    </section>
-
     <section id="mvc">
-        <h1> 4. MVC Model</h1>
-        <p> The MVC (model - view - controller) is an architectural model used by the software engineering. The success is due to the isolation
-            of the bussiness logic from the interface, thus resulting in a application where the visual level and/or the inferior levels of the 
-            bussiness logic are easier to modify, without affecting the other levels.
+        <h1> 3. MVC Model</h1>
+        <p> The client side adopted MVC to model the data flow here. It was required as the code-base is hard to manipulate at this stage
+            due to its dimension. 
         </p>
-        <h3 id="mvc_1"> 4.1 Model </h3>
-        <p> This part manipulates the logic operations (send prior by the superior level) to result in a component easier to understand. </p>
-        <h3 id="mvc_2"> 4.2 View </h3>
-        <p> This component is responsible for the graphics, in other words, the display of the already proccessed data. Its role is to manage the data until it riches the controller. </p>
-        <h3 id="mvc_3"> 4.3 Controller </h3>
-        <p> Due to this component we can control the access towards the application. They can be files, scripts or programs, in general any kind allowed by the interface. This way we can make the content more diverse in terms of dynamics, and static in the same time.</p>
+        <h3 id="mvc_1"> 3.1 Model </h3>
+        <p> The model is related to the encapsulation of the fabric base classes, in order to have an easy and transparent mode of use. </p>
+        <h3 id="mvc_2"> 3.2 View </h3>
+        <p> The view is composed by the basic interface reuired to work in the browser, and it makes use of the back functionalities. </p>
+        <h3 id="mvc_3"> 3.3 Controller </h3>
+        <p> The controllers are handling the back data by making use of the models in behind, which are finally displayed in the view.</p>
     </section>
 
     <section id="functionalities">
-        <h1> 6. Functionalities </h1>
-        <h3 id="func_1"> 6.1 Basic primitive drawing</h3>
+        <h1> 4. Functionalities </h1>
+        <h3 id="func_1"> 4.1 Basic primitive drawing</h3>
         <p> For the start, the main functionality provided is the adding of several primitives onto a canvas. The primitives right now are:
             text, shape, image, audio, video. The position style is highly dependent on the content type (rotation, size, overlap etc.).
             The content adding will be done with the drag and drop events using the two components: Tools and Canvas. Due to the standard 
             content maniputalion tools, ECAW will deliver easy to use interface tools for scaling and other geometry translations.
         </p>
-        <h3 id="func_2"> 6.2 Customization</h3>
+        <h3 id="func_2"> 4.2 Customization</h3>
         <p>  
             The widgets/shapes inside the canvas are customizable in a way dependent of the content type. This feature is scalable, as there are
             lots of ways in which one specific shape can be customized (colors, borders, text style, autoplay etc.). Furthermore, a powerful
@@ -155,72 +130,22 @@
             two images for example, for the layout sake. This also works on a hybrid combination (between a video and a text), which are meant to
             be aligned after a user defined layout.
         </p>
-        <h3 id="func_3"> 6.3 External source</h3>
+        <h3 id="func_3"> 4.3 External source</h3>
         <p> 
-            While the text and shape widgets are meant to be user-defined, the audio, video and image do require a source. On a low scale, the source
-            can be provided by the user by upload. However, due to the increasingly efficiency of online storing services, ECAW provides a suite of
-            providers which can be used in order to import custom data. This is evidently highly scalable, as potential new APIs will be easily
-            increase the impact of this feature.
+            While the text and shape widgets are meant to be user-defined, images do require a source. On a low scale, the source
+            can be provided by the user by upload.
         </p>
-        <h3 id="func_4"> 6.4 Save and load </h3>
+        <h3 id="func_4"> 4.4 Save and load </h3>
         <p> 
             As this administrative feature is mandatory for such projects, save and load will deliver an increased user experience. The saving will
-            be done under a XML format for easy storing. This is also be available for cloud storing, as one collage can be passed to another user via
-            the application (see the sharing feature). Nevertheless to say, a collage can be saved internally through user interaction (saving the collage
+            be done under a JSON format for easy storing. Nevertheless to say, a collage can be saved internally through user interaction (saving the collage
             on the device) or through cookies (saving the state of one collage automatically - this should also be taken in consideration as an efficiency issue).
-        </p>
-        <h3 id="func_5"> 6.5 Sharing</h3>
-        <p> 
-            This event is delivered as a feature as long as the API behind has such interaction implemented. This means that, the administrative
-            actions are a consequence of trying to exploit the back API, which will provide the sharing ability. However, the API is scalable in terms
-            of features, thus other new events will be available depending on the powerhouse's level.
-
-            Sharing for example will be used for working on the same collage as other user. Depending on the implementation, this will support concurrency
-            or not. The initial versions will rather focus on getting the things done under a non-concurent manner, while later versions may exploit this 
-            feature.
-        </p>
-        <h3 id="func_6"> 6.6 Login </h3>
-        <p> 
-            This will be a feature regarding the login/sign up paradigm. This is clearly what is supposed to handle, thus the focus of this topic should be 
-            rather what value will bring onto the application. Mainly a way of saving one callage in a digital form. This can be done by the cloud saving feature.
-            However the login will help one visualize its particular creation and extend the idea of one individual collage to a collection of collages. This is a
-            very scalable feature as it allows uniquely identifying creations. Basically this is a way of managing the content in a more fashionable way.
-        </p>
-    </section>
-
-    <section id="api">
-        <h1> 7. External APIs </h1>
-        <h3 id= "api_1"> 7.1 Youtube API</h3>
-        <p> 
-            For sure a boost for the application, as Youtube provides a wide range of videos which can join the canvas. As a content provider, 
-            it mainly focuses on videos and it starts as the best solution of a free video API for now. The OAuth gate towards the API might make
-            the API not that easy to access, but in the end the effort will be worth. Furthermore, some of other API's require similar authentification
-            method, thus a component once done can exploit this type of APIs.
-        </p>
-        <h3 id= "api_2"> 7.2 RandomCat API </h3>
-        <p> 
-            An free and very easy to use API which can provide resonable content for a collage. This one is an image provider which can
-            contribute to the external sources feature. 
-            No need to use any special authentificating process, but rather only HTTP calls which will return JSON content. This type of API
-            provides a low effort high impact boost towards the user experience.
-        </p>
-        <h3 id= "api_3"> 7.3 Giphy API</h3>
-        <p> 
-            Due to the recent trends, a gif is highly adequate for such application. Furthermore Giphy is a high appreciated gif provider,
-            thus worthy to be taken aboard. This (third) API uses an API key based authentification, thus the server will have mechanisms for all kind
-            of APIs, having a scalable implementation towards adding new APIs (with any kind of free authorization).
-        </p>
-        <h3 id= "api_4"> 7.4 SoundCloud API</h3>
-        <p> 
-            Finally, there should be an audio delivery service and SoundCloud API is fitting the profile. Therefore audio widgets can be added now
-            through the SoundCloud API. Similar to the Youtube API, it requires an OAuth method of authentificating the application. Unfortunately,
-            these APIs are not from the save provider, thus separate efforts should be done in order to authorize ECAW.
         </p>
     </section>
 
     <section id="technologies">
-        <h1> 8. Technologies </h1>
-        <h3 id="tech_1"> 8.1 Front end - HTML</h3>
+        <h1> 5. Technologies </h1>
+        <h3 id="tech_1"> 5.1 Front end - HTML</h3>
         <p> 
             HTML is a marking language used for creating web pages which can be displayed inside a browser. HTML's role is
             to present the information: paragraph, fonts, tables etc. rather than describing the semantics of the document.<br>
@@ -233,7 +158,7 @@
             Some tags allow the usage of attributes with cusom values. 
         </p>
 
-        <h3 id="tech_2"> 8.2 Front end - CSS</h3>
+        <h3 id="tech_2"> 5.2 Front end - CSS</h3>
         <p> 
             CSS is a standard for element formatting inside a HTML docuemnt. Styles can be attached to the HTML elemenets by
             importing external files or from inside the document through the style tag or the style attribute. CSS can be used
@@ -243,7 +168,7 @@
             step forward in developing in terms of web design.
         </p>
 
-        <h3 id="tech_3"> 8.3 Front end - Javscript</h3>
+        <h3 id="tech_3"> 5.3 Front end - Javscript</h3>
         <p> 
             JavaScript is an OOP language based on protoype concept. It is used especially for introducing new functionalities in web
             pages; the JavaScript code being executed by the browser. The language is well known for its usage inside web site building,
@@ -267,7 +192,7 @@
             of web interfaces with small response time, because the expensive operation of reloading the HTML complete can be removed.
         </p>
 
-        <h3 id="tech_4"> 8.4 Back End</h3>
+        <h3 id="tech_4"> 5.4 Back End</h3>
         <p> 
             Node.js is an environment for running Javascript, open-platform, multi-platform, which executes JavaScript code outside the browser. NodeJS
             allows the developers to use JavaScript for command line commands development and for server-side scripts - running this way, dynamic content
@@ -280,40 +205,59 @@
             The development project shared by Node.js, under the rights of Node.js foundation, is boosted by the collaboration programme of Linux Foundation.
         </p>
 
-        <h3 id="tech_5"> 8.5 Database</h3>
-        <p> 
-            For the database choice, we are pursuing a full JavaScript ecosystem by picking a non-relational database, more specifically MongoDB. It delivers
-            fast and reliable queries which fit onto the main purpose of the application. The documents there will store information about the users and
-            theit content, thus: on a way slim data with multiple entries (for users) and bulk data with a lot of entried (for content). A database like
-            Mongo will make use of its horizontally scalability in order to store such data. Finally, a cloud based platform like Atlas will help storing
-            the data. This will for sure help the deployment and boost the storing component under security and efficiency paradigms of cloud computing.
-        </p>
-
-        <h3 id="tech_6"> 8.6 Version control</h3>
+        <h3 id="tech_5"> 5.6 Version control</h3>
         <p> 
             As already mandatory, the version control used for this application will be git, being hosted finally by GitHub. This is a normal choice after all
             as both developers do have exeperience in working in such environment. Speaking of its usability, git will allow concurent development without
             being an overhead.
         </p>
 
-        <h3 id="tech_7"> 8.7 Server and OS </h3>
+        <h3 id="tech_6"> 5.7 Server and OS </h3>
         <p> 
             The server used will be provided by NodeJS, due to its powerful means of delivering server work. Express will be considered as an framework in order to
             simplify the server side work. The Web server may not have such workload in order to request powerful tools. The API however will need to 
             have a strong impementation in orde to fullfil the multiple tasks it has. The OS used is not yet relevant, as the deployment will be done over
             multiple OSs (mainly Windows and Linux). The server should be built in a non dependent fashion.
         </p>
-
-        <h3 id="tech_8"> 8.8 Deployment</h3>
+    </section>
+    <section id="usage">
+        <h1> 6. Usage </h1>
+        <h3 id="usage_1"> 6.1 Drawing</h3>
         <p> 
-            Heroku is taken in consideration for deployment as it is a reliable and secure way of sharing the final product. This is however to early to decide, and
-            for sure not mandatory at this stage as it should not depend on the development stage. 
-              
+            One can make use of the existing controls in order to manipulate the contents inside the cavas. By pressing one figure, the 
+            control buttons will appear. The ones around the shape are used for scaling, while the circle above is used for rotating.
+            By dragging the object, will move it around the canvas. It can go out of the canvas, but only the part indside will be displayed.
         </p>
+        <h3 id="usage_2"> 6.2 Toolbar</h3>
+        <p> 
+            There is a toolbar for adding new objects to the canvas: a text, rectangle, circle or image. Each one of those has a specific modal
+            from which the required configuration can be chosed. After pressing the submit button, the selected object with that specific
+            details will be created in the upper-left corner. From this point now on, the object can be manipulated.
+        </p>
+        <h3 id="usage_3"> 6.3 Customization</h3>
+        <p> 
+            By selecting an object inside, the customization panel will be updated with the configuration of the selected component. Now, the 
+            modifications on there do update in real time the canvas. The options there are exactly the same as the ones in the modals generated
+            by the toolbar. If multiple objects are selected, only the first one in the selection will be eligible for customization.
+        </p>
+        <h3 id="usage_4"> 6.4 Handling</h3>
+        <p> 
+            The handling menu can be used for functionalities regarding the whole canvas. There is a save/load button which is used for internally
+            saving the canvas as a JSON, or loading it in the current canvas. When loading the old content will be erased. The export button will
+            generate a png for one to save the canvas. Finally, the clear button will erase everything in the canvas.
+        </p>
+        <h3 id="usage_5"> 6.5 Hotkeys</h3>
+        <p> 
+            The canvas can be also manipulated using hotkeys. This means that there are shortcuts which do several things: Ctrl+C and Ctrl+V do
+            as expected: they copy the curent selection and clones it in the canvas. Del key will delete the current selection (this also works
+            on a multiple selection). The G and U keys are used to group and ungroup the selection, making the objects selected as one single
+            object which can be manipulated as a whole.
+        </p>
+
     </section>
     
     <section id="bibliography">
-        <h1> 9. Bibliography & Sources</h1>
+        <h1> 7. Bibliography & Sources</h1>
         <h3 id="bibliography"> Bibliography </h3>
 
         <p><a href="https://github.com/AlexandruSte/CrisisContainmentService">CrisisContainmentService - used for report template</a></p>

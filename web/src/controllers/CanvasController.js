@@ -106,12 +106,14 @@ export default class CanvasController {
             this.canvas.getActiveObjects().forEach(function(o)
             {
                 var object = fabric.util.object.clone(o);
+                object.id = "ghij";
                 self.copiedObjects.push(object);
             });             
         }
         else if(this.canvas.getActiveObject())
         {
             var object = fabric.util.object.clone(this.canvas.getActiveObject());
+            object.id = "ghij";
             this.copiedObject = object;
             this.copiedObjects = new Array();
         }
